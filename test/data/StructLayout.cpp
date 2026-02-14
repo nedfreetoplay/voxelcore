@@ -38,10 +38,10 @@ TEST(StructLayout, Unicode) {
      EXPECT_EQ(layout.size(), 5);
 
      layout.setUnicode(buffer, "テキストデモ", "text");
-     EXPECT_EQ(layout.getChars(buffer, "text"), std::string(u8"テ"));
+     EXPECT_EQ(layout.getChars(buffer, "text"), std::string("テ"));
 
      layout.setUnicode(buffer, "пример", "text");
-     EXPECT_EQ(layout.getChars(buffer, "text"), std::string(u8"пр"));
+     EXPECT_EQ(layout.getChars(buffer, "text"), std::string("пр"));
 }
 
 TEST(StructLayout, ConvertReorder) {
