@@ -32,6 +32,10 @@ struct VertexAttribute {
 
     VertexAttribute(VertexAttribute&&) = default;
 
+    VertexAttribute(AttributeType t, int f, util::Buffer<float> d)
+        : type(t), flags(f), data(std::move(d))
+    { }
+
     VertexAttribute& operator=(VertexAttribute&& o) {
         type = o.type;
         flags = o.flags;

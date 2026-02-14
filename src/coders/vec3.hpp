@@ -33,6 +33,11 @@ namespace vec3 {
 
         File(File&&) = default;
 
+        File(std::unordered_map<std::string, Model> mod,
+             std::vector<Material> mat)
+             : models(std::move(mod)), materials(std::move(mat))
+        { }
+
         File& operator=(File&&) = default;
     };
 
