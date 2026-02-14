@@ -336,8 +336,8 @@ std::filesystem::path io::resolve(const io::path& file) {
 using DecodeFunc = dv::value(*)(std::string_view, std::string_view);
 
 static std::map<fs::path, DecodeFunc> data_decoders {
-    {fs::u8path(".json"), json::parse},
-    {fs::u8path(".toml"), toml::parse},
+    {fs::path(".json"), json::parse},
+    {fs::path(".toml"), toml::parse},
 };
 
 bool io::is_data_file(const io::path& file) {

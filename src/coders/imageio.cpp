@@ -75,7 +75,7 @@ void imageio::write(const io::path& file, const ImageData* image) {
             "file format is not supported (write): " + file.string()
         );
     }
-    return found->second(io::resolve(file).u8string(), image);
+    return found->second(io::resolve(file).string(), image);
 }
 
 util::Buffer<unsigned char> imageio::encode(

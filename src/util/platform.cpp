@@ -154,14 +154,14 @@ void platform::open_folder(const std::filesystem::path& folder) {
         return;
     }
 #ifdef __APPLE__
-    auto cmd = "open " + util::quote(folder.u8string());
+    auto cmd = "open " + util::quote(folder.string());
     if (int res = system(cmd.c_str())) {
         logger.warning() << "'" << cmd << "' returned code " << res;
     }
 #elif defined(_WIN32)
     ShellExecuteW(nullptr, L"open", folder.wstring().c_str(), nullptr, nullptr, SW_SHOWDEFAULT);
 #else
-    auto cmd = "xdg-open " + util::quote(folder.u8string());
+    auto cmd = "xdg-open " + util::quote(folder.string());
     if (int res = system(cmd.c_str())) {
         logger.warning() << "'" << cmd << "' returned code " << res;
     }
@@ -218,7 +218,7 @@ void platform::new_engine_instance(const std::vector<std::string>& args) {
 
 #ifdef _WIN32
     std::stringstream ss;
-    ss << util::quote(executable.u8string());
+    ss << util::quote(executable.string());
     for (int i = 0; i < args.size(); i++) {
         ss << " " << util::quote(args[i]);
     }

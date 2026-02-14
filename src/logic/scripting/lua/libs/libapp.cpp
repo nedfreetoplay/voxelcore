@@ -353,8 +353,8 @@ static int l_start_debug_instance(lua::State* L) {
     const auto& paths = engine->getPaths();
 
     std::vector<std::string> args {
-        "--res", paths.getResourcesFolder().u8string(),
-        "--dir", paths.getUserFilesFolder().u8string(),
+        "--res", paths.getResourcesFolder().string(),
+        "--dir", paths.getUserFilesFolder().string(),
         "--dbg-server",  "tcp:" + std::to_string(port),
     };
     if (!projectPath.empty()) {

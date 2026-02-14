@@ -17,7 +17,7 @@ namespace io {
     /// @brief std::filesystem::path project-specific alternative having
     /// `entry_point:path` scheme and solving std::filesystem::path problems:
     /// - implicit std::string conversions depending on compiler
-    /// - unicode path construction must be done with std::filesystem::u8path
+    /// - unicode path construction must be done with std::filesystem::path
     class path {
     public:
         path() = default;
